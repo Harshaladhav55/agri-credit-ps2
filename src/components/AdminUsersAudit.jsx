@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Users, ShieldCheck, KeyRound, Phone, MapPin, Sprout, FileText, ArrowRight, UserCheck, CheckCircle2, AlertTriangle, Clock } from 'lucide-react';
 import FarmerHistoryModal from './FarmerHistoryModal';
+import { API_BASE } from '../config';
 
 export default function AdminUsersAudit({ onLoginAsFarmer }) {
   const [users, setUsers] = useState([]);
@@ -11,9 +12,9 @@ export default function AdminUsersAudit({ onLoginAsFarmer }) {
 
   useEffect(() => {
     Promise.all([
-      fetch('http://localhost:5000/api/admin/registered-users').then(res => res.json()),
-      fetch('http://localhost:5000/api/ml/verification-audit').then(res => res.json()),
-      fetch('http://localhost:5000/api/ai/repayment-risk-audit').then(res => res.json())
+      fetch(`${API_BASE}/admin/registered-users`).then(res => res.json()),
+      fetch(`${API_BASE}/ml/verification-audit`).then(res => res.json()),
+      fetch(`${API_BASE}/ai/repayment-risk-audit`).then(res => res.json())
     ])
       .then(([userData, auditData, riskData]) => {
         setUsers(userData.users || []);

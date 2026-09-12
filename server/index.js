@@ -700,6 +700,10 @@ app.post('/api/history/log-event', (req, res) => {
   }
 });
 
-app.listen(PORT, () => {
-  console.log(`🌾 AgriTrust Express Server running on http://localhost:${PORT}`);
-});
+if (process.env.NODE_ENV !== 'test' && !process.env.NETLIFY) {
+  app.listen(PORT, () => {
+    console.log(`🌾 AgriTrust Express Server running on http://localhost:${PORT}`);
+  });
+}
+
+export default app;

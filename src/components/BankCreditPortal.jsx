@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Landmark, ShieldCheck, CheckCircle2, AlertTriangle, ChevronRight, HelpCircle, FileText, ArrowUpRight, Coins, Activity, Clock } from 'lucide-react';
 import { ResponsiveContainer, PieChart, Pie, Cell, Tooltip, Legend } from 'recharts';
 import FarmerHistoryModal from './FarmerHistoryModal';
+import { API_BASE } from '../config';
 
 export default function BankCreditPortal({ profile }) {
   const [sanctioned, setSanctioned] = useState(false);
@@ -11,7 +12,7 @@ export default function BankCreditPortal({ profile }) {
 
   useEffect(() => {
     if (profile?.farmer?.id) {
-      fetch('http://localhost:5000/api/ai/predict-repayment-risk', {
+      fetch(`${API_BASE}/ai/predict-repayment-risk`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

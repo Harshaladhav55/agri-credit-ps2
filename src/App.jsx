@@ -22,6 +22,8 @@ import {
   Moon
 } from 'lucide-react';
 
+import { API_BASE } from './config';
+
 export default function App() {
   // Initialize state from localStorage if available
   const [user, setUser] = useState(() => {
@@ -51,8 +53,6 @@ export default function App() {
   const [fpoData, setFpoData] = useState(null);
   const [simulatedProfile, setSimulatedProfile] = useState(null);
   const [loading, setLoading] = useState(false);
-
-  const API_BASE = 'http://localhost:5000/api';
 
   const toggleTheme = () => {
     setTheme(prev => (prev === 'light' ? 'dark' : 'light'));

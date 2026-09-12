@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Database, HardDrive, Download, Copy, Check, X, Server, ShieldCheck, RefreshCw, FileText } from 'lucide-react';
+import { API_BASE } from '../config';
 
 export default function DataStorageInspector({ isOpen, onClose, theme = 'light' }) {
   const [activeTab, setActiveTab] = useState('serverData'); // 'serverData' or 'localData'
@@ -40,7 +41,7 @@ export default function DataStorageInspector({ isOpen, onClose, theme = 'light' 
 
     // 2. Fetch Server Disk Data from /api/admin/export-data or /api/admin/registered-users
     try {
-      const res = await fetch('http://localhost:5000/api/admin/registered-users');
+      const res = await fetch(`${API_BASE}/admin/registered-users`);
       const data = await res.json();
       setServerData({
         storageType: 'Backend Server Persistent Storage (server/data/pm_kisan.json)',

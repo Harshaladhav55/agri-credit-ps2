@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Users, Shield, UserCheck, HeartHandshake, TrendingUp, DollarSign, CheckCircle2, AlertTriangle, Plus, RefreshCw, Award, Scale, ArrowRight, Clock, ShieldAlert, AlertCircle, Trash2 } from 'lucide-react';
 import FarmerHistoryModal from './FarmerHistoryModal';
 import GroupHistoryModal from './GroupHistoryModal';
+import { API_BASE } from '../config';
 
 export default function FPOCommunityHub({ fpoData, onEndorsePeer, theme = 'light' }) {
   const [activeTab, setActiveTab] = useState('vouching'); // 'vouching' or 'jlgGroups'
@@ -38,7 +39,7 @@ export default function FPOCommunityHub({ fpoData, onEndorsePeer, theme = 'light
   const fetchGroups = async () => {
     setLoadingGroups(true);
     try {
-      const res = await fetch('http://localhost:5000/api/group-credit/list-groups');
+      const res = await fetch(`${API_BASE}/group-credit/list-groups`);
       const data = await res.json();
       if (data.success && data.groups && data.groups.length > 0) {
         setGroups(data.groups);
@@ -141,18 +142,25 @@ export default function FPOCommunityHub({ fpoData, onEndorsePeer, theme = 'light
   };
 
   const handleCreateGroupSubmit = async (e) => {
-    if (e) e.preventDefault();
+    e.preventDefault();
+    if (selectedMemberIds.length < 2) {
+      setCreateGroupError('At least 2 member farmers are required to form a Joint Liability Group.');
+      return;
+    }
+
     setCreatingGroup(true);
     setCreateGroupError('');
 
-    if (selectedMemberIds.length < 3 || selectedMemberIds.length > 10) {
-      setCreateGroupError('A Joint Liability Group must consist of 3 to 10 member farmers.');
+    const parsedGracePeriod = parseInt(gracePeriodDays, 10) || 30;
+
+    if (!newGroupName.trim()) {
+      setCreateGroupError('Group Name is required.');
       setCreatingGroup(false);
       return;
     }
 
     try {
-      const res = await fetch('http://localhost:5000/api/group-credit/create-group', {
+      const res = await fetch(`${API_BASE}/group-credit/create-group`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -161,7 +169,7 @@ export default function FPOCommunityHub({ fpoData, onEndorsePeer, theme = 'light
           village: 'Pimplad',
           district: 'Nashik',
           state: 'Maharashtra',
-          gracePeriodDays
+          gracePeriodDays: parsedGracePeriod
         })
       });
 
@@ -172,14 +180,14 @@ export default function FPOCommunityHub({ fpoData, onEndorsePeer, theme = 'light
         setShowCreateGroupModal(false);
       } else {
         // Fallback local group creation
-        const localGroup = computeLocalGroupScore(selectedMemberIds, newGroupName, gracePeriodDays);
+        const localGroup = computeLocalGroupScore(selectedMemberIds, newGroupName, parsedGracePeriod);
         setGroups(prev => [localGroup, ...prev]);
         setSelectedGroup(localGroup);
         setShowCreateGroupModal(false);
       }
     } catch (err) {
       console.warn('API Error (Creating group locally):', err);
-      const localGroup = computeLocalGroupScore(selectedMemberIds, newGroupName, gracePeriodDays);
+      const localGroup = computeLocalGroupScore(selectedMemberIds, newGroupName, parsedGracePeriod);
       setGroups(prev => [localGroup, ...prev]);
       setSelectedGroup(localGroup);
       setShowCreateGroupModal(false);
@@ -194,7 +202,7 @@ export default function FPOCommunityHub({ fpoData, onEndorsePeer, theme = 'light
     }
 
     try {
-      await fetch(`http://localhost:5000/api/group-credit/delete-group/${groupId}`, {
+      await fetch(`${API_BASE}/group-credit/delete-group/${groupId}`, {
         method: 'DELETE'
       });
     } catch (err) {
@@ -215,7 +223,7 @@ export default function FPOCommunityHub({ fpoData, onEndorsePeer, theme = 'light
     if (!selectedGroup) return;
     setSimulatingDefault(true);
     try {
-      const res = await fetch('http://localhost:5000/api/group-credit/trigger-default', {
+      const res = await fetch(`${API_BASE}/group-credit/trigger-default`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

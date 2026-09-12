@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ShieldCheck, Hand, Sprout, ArrowRight, UserPlus, LogIn as LogInIcon, CheckCircle2, AlertCircle } from 'lucide-react';
+import { API_BASE } from '../config';
 
 export default function LoginPage({ onLoginSuccess }) {
   const [mode, setMode] = useState('login'); // 'login' or 'register'
@@ -113,7 +114,7 @@ export default function LoginPage({ onLoginSuccess }) {
     setError('');
 
     try {
-      const res = await fetch('http://localhost:5000/api/auth/login', {
+      const res = await fetch(`${API_BASE}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ identity: loginMobile, password: loginOtp, role: 'farmer' })
@@ -142,7 +143,7 @@ export default function LoginPage({ onLoginSuccess }) {
 
     try {
       const fullName = `${regFirstName} ${regLastName}`.trim();
-      const res = await fetch('http://localhost:5000/api/auth/register-farmer', {
+      const res = await fetch(`${API_BASE}/auth/register-farmer`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -166,7 +167,7 @@ export default function LoginPage({ onLoginSuccess }) {
       }
     } catch (err) {
       console.error('Register error:', err);
-      setError('Registration error. Make sure server is running on http://localhost:5000');
+      setError('Registration error. Make sure backend server is accessible.');
     } finally {
       setLoading(false);
     }

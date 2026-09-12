@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:5000/api';
+import { API_BASE as API_BASE_URL } from '../config';
 
 export const apiService = {
   // Register new user

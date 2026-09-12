@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ShieldCheck, CheckCircle2, QrCode, Lock, FileCheck, Sprout, Award, Users, Phone, MapPin, Building2, Coins, Edit3, Save, X, Trash2, AlertTriangle, Activity, Clock } from 'lucide-react';
 import FarmerHistoryModal from './FarmerHistoryModal';
+import { API_BASE } from '../config';
 
 export default function FarmerVault({ profile, user, onProfileUpdate, onDeleteAccount, onConsentCreate, theme = 'light' }) {
   const [showQR, setShowQR] = useState(false);
@@ -64,7 +65,7 @@ export default function FarmerVault({ profile, user, onProfileUpdate, onDeleteAc
   useEffect(() => {
     const farmerId = profile?.farmer?.id;
     if (!farmerId) return;
-    fetch('http://localhost:5000/api/ai/predict-repayment-risk', {
+    fetch(`${API_BASE}/ai/predict-repayment-risk`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -103,7 +104,7 @@ export default function FarmerVault({ profile, user, onProfileUpdate, onDeleteAc
   const handleApplyLoan = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:5000/api/loan-application/apply', {
+      const res = await fetch(`${API_BASE}/loan-application/apply`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -124,7 +125,7 @@ export default function FarmerVault({ profile, user, onProfileUpdate, onDeleteAc
     e.preventDefault();
     setUpdating(true);
     try {
-      const res = await fetch('http://localhost:5000/api/farmer/update-profile', {
+      const res = await fetch(`${API_BASE}/farmer/update-profile`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

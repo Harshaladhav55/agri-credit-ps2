@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Download, ShieldCheck, Users, Award, Coins, Clock, AlertTriangle, FileText, CheckCircle2 } from 'lucide-react';
 import { generateGroupPDFReport } from '../utils/reportGenerator';
+import { API_BASE } from '../config';
 
 export default function GroupHistoryModal({ groupId, groupName, onClose, onSelectFarmer }) {
   const [history, setHistory] = useState(null);
@@ -10,7 +11,7 @@ export default function GroupHistoryModal({ groupId, groupName, onClose, onSelec
   useEffect(() => {
     if (!groupId) return;
     setLoading(true);
-    fetch(`http://localhost:5000/api/history/group/${groupId}`)
+    fetch(`${API_BASE}/history/group/${groupId}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {

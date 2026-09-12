@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Download, ShieldCheck, CheckCircle2, AlertTriangle, FileText, User, Sprout, Award, Coins, Calendar, Activity, Clock, Layers, Users } from 'lucide-react';
 import { generateFarmerPDFReport } from '../utils/reportGenerator';
+import { API_BASE } from '../config';
 
 export default function FarmerHistoryModal({ farmerId, farmerName, onClose }) {
   const [history, setHistory] = useState(null);
@@ -10,7 +11,7 @@ export default function FarmerHistoryModal({ farmerId, farmerName, onClose }) {
   useEffect(() => {
     if (!farmerId) return;
     setLoading(true);
-    fetch(`http://localhost:5000/api/history/farmer/${farmerId}`)
+    fetch(`${API_BASE}/history/farmer/${farmerId}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
