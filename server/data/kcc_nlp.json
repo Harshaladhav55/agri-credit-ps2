@@ -1,0 +1,29 @@
+[
+  {
+    "district": "Nashik",
+    "crop": "Onion",
+    "top_query_category": "Thrips & Purple Blotch Management",
+    "query_volume_30d": 412,
+    "regional_sentiment_score": 0.82,
+    "advisory_status": "Standard Seasonal Spraying Advised",
+    "pest_risk_alert": "Low"
+  },
+  {
+    "district": "Kolar",
+    "crop": "Tomato",
+    "top_query_category": "Early Blight & Whitefly Control",
+    "query_volume_30d": 620,
+    "regional_sentiment_score": 0.74,
+    "advisory_status": "Watchful Monitoring for Whitefly Outbreak",
+    "pest_risk_alert": "Medium"
+  },
+  {
+    "district": "Solapur",
+    "crop": "Pomegranate",
+    "top_query_category": "Bacterial Blight (Telyan)",
+    "query_volume_30d": 289,
+    "regional_sentiment_score": 0.78,
+    "advisory_status": "Strict Field Sanitation Advised",
+    "pest_risk_alert": "Medium"
+  }
+]

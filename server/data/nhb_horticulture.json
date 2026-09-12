@@ -1,0 +1,57 @@
+[
+  {
+    "district": "Nashik",
+    "state": "Maharashtra",
+    "crop": "Onion",
+    "total_area_ha": 52400,
+    "annual_production_mt": 943200,
+    "avg_yield_mt_per_ha": 18.0,
+    "yield_benchmark_rating": "High",
+    "input_cost_per_acre_inr": 35000,
+    "expected_gross_revenue_per_acre_inr": 95000
+  },
+  {
+    "district": "Kolar",
+    "state": "Karnataka",
+    "crop": "Tomato",
+    "total_area_ha": 18200,
+    "annual_production_mt": 436800,
+    "avg_yield_mt_per_ha": 24.0,
+    "yield_benchmark_rating": "Very High",
+    "input_cost_per_acre_inr": 42000,
+    "expected_gross_revenue_per_acre_inr": 115000
+  },
+  {
+    "district": "Solapur",
+    "state": "Maharashtra",
+    "crop": "Pomegranate",
+    "total_area_ha": 34100,
+    "annual_production_mt": 375100,
+    "avg_yield_mt_per_ha": 11.0,
+    "yield_benchmark_rating": "High",
+    "input_cost_per_acre_inr": 55000,
+    "expected_gross_revenue_per_acre_inr": 180000
+  },
+  {
+    "district": "Jalgaon",
+    "state": "Maharashtra",
+    "crop": "Banana",
+    "total_area_ha": 48000,
+    "annual_production_mt": 2400000,
+    "avg_yield_mt_per_ha": 50.0,
+    "yield_benchmark_rating": "High",
+    "input_cost_per_acre_inr": 60000,
+    "expected_gross_revenue_per_acre_inr": 160000
+  },
+  {
+    "district": "Rajkot",
+    "state": "Gujarat",
+    "crop": "Cotton",
+    "total_area_ha": 125000,
+    "annual_production_mt": 275000,
+    "avg_yield_mt_per_ha": 2.2,
+    "yield_benchmark_rating": "Medium-High",
+    "input_cost_per_acre_inr": 28000,
+    "expected_gross_revenue_per_acre_inr": 72000
+  }
+]

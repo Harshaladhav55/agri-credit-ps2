@@ -1,0 +1,58 @@
+[
+  {
+    "district": "Nashik",
+    "state": "Maharashtra",
+    "crop": "Onion",
+    "insurance_enrolled": true,
+    "policy_no": "PMFBY/MH/2026/099812",
+    "sum_insured_per_acre": 40000,
+    "premium_farmer_paid_pct": 2.0,
+    "historical_claim_payout_ratio": 0.14,
+    "climate_risk_index": "Low-Moderate",
+    "drought_vulnerability": "Low",
+    "flood_vulnerability": "Moderate",
+    "active_coverage_status": "Active"
+  },
+  {
+    "district": "Kolar",
+    "state": "Karnataka",
+    "crop": "Tomato",
+    "insurance_enrolled": true,
+    "policy_no": "PMFBY/KA/2026/045192",
+    "sum_insured_per_acre": 45000,
+    "premium_farmer_paid_pct": 5.0,
+    "historical_claim_payout_ratio": 0.22,
+    "climate_risk_index": "Moderate",
+    "drought_vulnerability": "Moderate",
+    "flood_vulnerability": "Low",
+    "active_coverage_status": "Active"
+  },
+  {
+    "district": "Solapur",
+    "state": "Maharashtra",
+    "crop": "Pomegranate",
+    "insurance_enrolled": true,
+    "policy_no": "PMFBY/MH/2026/112049",
+    "sum_insured_per_acre": 60000,
+    "premium_farmer_paid_pct": 5.0,
+    "historical_claim_payout_ratio": 0.31,
+    "climate_risk_index": "Moderate-High",
+    "drought_vulnerability": "High",
+    "flood_vulnerability": "Low",
+    "active_coverage_status": "Active"
+  },
+  {
+    "district": "Rajkot",
+    "state": "Gujarat",
+    "crop": "Cotton",
+    "insurance_enrolled": true,
+    "policy_no": "PMFBY/GJ/2026/782103",
+    "sum_insured_per_acre": 32000,
+    "premium_farmer_paid_pct": 2.0,
+    "historical_claim_payout_ratio": 0.18,
+    "climate_risk_index": "Moderate",
+    "drought_vulnerability": "Moderate",
+    "flood_vulnerability": "Low",
+    "active_coverage_status": "Active"
+  }
+]

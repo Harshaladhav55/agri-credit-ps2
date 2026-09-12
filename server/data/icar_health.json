@@ -1,0 +1,32 @@
+[
+  {
+    "farmer_id": "FARM-MH-8821",
+    "crop": "Onion",
+    "last_scan_date": "2026-09-02",
+    "scan_result": "Healthy Leaf Canopy",
+    "disease_detected": "None",
+    "health_confidence_score": 96.4,
+    "crop_vigor_index": 0.89,
+    "yield_impact_risk": "Negligible"
+  },
+  {
+    "farmer_id": "FARM-KA-4419",
+    "crop": "Tomato",
+    "last_scan_date": "2026-09-05",
+    "scan_result": "Mild Leaf Spot Detected",
+    "disease_detected": "Alternaria Solani",
+    "health_confidence_score": 88.2,
+    "crop_vigor_index": 0.79,
+    "yield_impact_risk": "Low (Manageable)"
+  },
+  {
+    "farmer_id": "FARM-MH-9103",
+    "crop": "Pomegranate",
+    "last_scan_date": "2026-09-01",
+    "scan_result": "Healthy Fruit & Canopy",
+    "disease_detected": "None",
+    "health_confidence_score": 94.0,
+    "crop_vigor_index": 0.86,
+    "yield_impact_risk": "Negligible"
+  }
+]
