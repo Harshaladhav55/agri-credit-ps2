@@ -4,11 +4,16 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
+  root: './frontend',
   plugins: [react()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(__dirname, './frontend/src'),
     },
+  },
+  build: {
+    outDir: '../dist',
+    emptyOutDir: true,
   },
   server: {
     proxy: {

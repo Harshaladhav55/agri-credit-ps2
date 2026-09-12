@@ -4,7 +4,7 @@ import { calculateFarmerCreditProfile } from './creditScoringEngine.js';
 import { predictFarmerRepaymentRisk } from './repaymentRiskAI.js';
 import { getFarmerAuditTrail } from './auditLogger.js';
 
-const dataDir = path.resolve('server/data');
+const dataDir = path.resolve('backend/data');
 
 const loadJSON = (fileName) => {
   try {

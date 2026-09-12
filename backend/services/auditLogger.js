@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
-const dataDir = path.resolve('server/data');
+const dataDir = path.resolve('backend/data');
 const auditLogFile = path.join(dataDir, 'audit_logs.json');
 
 const loadAuditLogs = () => {

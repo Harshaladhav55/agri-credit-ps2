@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { calculateFarmerCreditProfile } from './creditScoringEngine.js';
 
-const dataDir = path.resolve('server/data');
+const dataDir = path.resolve('backend/data');
 
 const loadJSON = (fileName) => {
   try {

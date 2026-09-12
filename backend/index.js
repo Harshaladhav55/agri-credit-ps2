@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-const dataDir = path.resolve('server/data');
+const dataDir = path.resolve('backend/data');
 
 const readDataFile = (fileName) => {
   try {
